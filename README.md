@@ -7,7 +7,27 @@
 
 ### 🏠 [Homepage](https://github.com/marcelothebuilder/dolcegusto-cli)
 
-## Install
+# Usage
+
+## Install globally
+```sh
+npm install -g dolcegusto-cli
+```
+
+## Install as dependency
+```sh
+npm install dolcegusto-cli
+```
+
+```javascript
+const { DolceGustoApi, DolceGustoApiError } = require('./DolceGustoApi')
+// your code
+```
+
+
+# Development
+
+## Install dependencies
 
 ```sh
 npm install
