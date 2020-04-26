@@ -19,6 +19,30 @@ npm install
 npm run start
 ```
 
+## Check code
+
+```sh
+npm run lint
+```
+
+## Autofix code
+
+```sh
+npm run lint:fix
+```
+
+## Build E5 code
+
+```sh
+npm run build
+```
+
+## Build self-contained binary
+
+```sh
+npm run build:bin
+```
+
 ## Run tests
 
 ```sh
