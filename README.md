@@ -1,4 +1,6 @@
 # Welcome to dolcegusto-cli 👋
+[![NPM version](https://img.shields.io/npm/v/dolcegusto-cli.svg)](https://www.npmjs.com/package/dolcegusto-cli)
+[![Downloads](https://img.shields.io/npm/dm/dolcegusto-cli.svg)](https://www.npmjs.com/package/dolcegusto-cli)
 ![Version](https://img.shields.io/badge/version-0.0.2-blue.svg?cacheSeconds=2592000)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](#)
 [![Twitter: marcelopaixaor](https://img.shields.io/twitter/follow/marcelopaixaor.svg?style=social)](https://twitter.com/marcelopaixaor)
