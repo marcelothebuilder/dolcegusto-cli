@@ -4,8 +4,9 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
+    "start": "node src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "babel src -d lib && pkg package.json --out-path bin"
+    "build": "babel src -d lib && pkg package.json --out-path bin && node upx.js"
   },
   "bin": "lib/index.js",
   "author": "Revok",
@@ -29,19 +30,15 @@
     "@babel/cli": "^7.8.4",
     "@babel/core": "^7.9.0",
     "@babel/plugin-proposal-class-properties": "^7.8.3",
-    "pkg": "^4.4.7"
+    "pkg": "^4.4.7",
+    "upx": "^1.0.6"
   },
   "pkg": {
     "assets": "node_modules/figlet/fonts/*",
     "targets": [
-      "node12-win-x86",
-      "node12-win-x64",
-      "node12-linux-x86",
-      "node12-linux-x64",
-      "node12-linux-armv6",
-      "node12-linux-armv7",
-      "node12-macos-x86",
-      "node12-macos-x64"
+      "node12.16.1-win-x64",
+      "node12.16.1-linux-x64",
+      "node12.16.1-macos-x64"
     ]
   }
 }

@@ -1,48 +1,27 @@
 const { DolceGustoApi, DolceGustoApiError } = require("./DolceGustoApi");
-const fs = require("fs").promises;
-const chalk = require("chalk");
-const { log, error } = console;
-const Configstore = require("configstore");
-const packageJson = require("../package.json");
-const inquirer = require("inquirer");
-const figlet = require("figlet");
 const { askCredentials, askCoupon, askContinue } = require("./Prompts");
-const argv = require("minimist")(process.argv.slice(2));
-
-const config = new Configstore(packageJson.name);
-
-const bannerStyle = chalk.green;
-const printBanner = async () => {
-  log(
-    bannerStyle.bold(
-      figlet.textSync("DolceGusto Cli", {
-        horizontalLayout: "full",
-        font: "Straight",
-      })
-    )
-  );
-  log(bannerStyle("Not affiliated with Nescafé!"));
-  log();
-};
+const { success, error, errorTitle, logBanner } = require("./Logger");
+const { Config } = require("./Config");
+const { Argv } = require("./Argv");
 
 const askCredentialsIfNeeded = async () => {
-  if (config.has("email")) return;
+  if (Config.has("email")) return;
   const answers = await askCredentials();
-  config.set("email", answers.email);
-  config.set("password", answers.password);
+  Config.set("email", answers.email);
+  Config.set("password", answers.password);
 };
 
 const getCredentials = () => ({
-  email: argv.email || config.get("email"),
-  password: argv.password || config.get("password"),
+  email: Argv.email || Config.get("email"),
+  password: Argv.password || Config.get("password"),
 });
 
 (async () => {
-  await printBanner();
-  
-  if (argv.clearConfig) {
-    config.clear();
-    log(chalk.green("Config cleared!\n"));
+  logBanner();
+
+  if (Argv.clearConfig) {
+    Config.clear();
+    success("Config cleared!\n");
   }
 
   await askCredentialsIfNeeded();
@@ -54,19 +33,15 @@ const getCredentials = () => ({
   } while (await askContinue());
 })().catch((err) => {
   if (err instanceof DolceGustoApiError) {
-    error(chalk.red.bold(err.message));
+    errorTitle(err.message);
     (err.messages || []).forEach((message) => {
-      error(chalk.red(`\t${message}`));
+      error(`\t${message}`);
     });
     if (err.step === DolceGustoApiError.Step.LOGIN) {
-      error(
-        chalk.red(
-          "You can reset the saved credentials by passing --clearConfig"
-        )
-      );
+      error("You can reset the saved credentials by passing --clearConfig");
     }
   } else {
     error(err);
   }
-  process.exit(-1);
+  process.exitCode = -1;
 });
