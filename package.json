@@ -1,7 +1,7 @@
 {
   "name": "dolcegusto-cli",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.0.1",
+  "description": "Automates promo code submission",
   "main": "lib-es5/index.js",
   "scripts": {
     "start": "node src/cli.js",
@@ -15,8 +15,8 @@
   "bin": {
     "dolcegusto-cli": "lib-es5/cli.js"
   },
-  "author": "Revok",
-  "license": "ISC",
+  "author": "Marcelo Paixão Resende",
+  "license": "MIT",
   "dependencies": {
     "axios": "^0.19.2",
     "axios-cookiejar-support": "^1.0.0",
