@@ -2,16 +2,18 @@
   "name": "dolcegusto-cli",
   "version": "1.0.0",
   "description": "",
-  "main": "src/index.js",
+  "main": "lib-es5/index.js",
   "scripts": {
     "start": "node src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "babel src -d lib && pkg package.json --out-path bin && node upx.js",
+    "build": "babel src -d lib-es5",
+    "build:bin": "babel src -d lib-es5 && pkg package.json --out-path bin && node upx.js",
     "lint": "eslint src",
-    "lint:fix": "eslint src --fix"
+    "lint:fix": "eslint src --fix",
+    "prepublishOnly": "npm run build"
   },
   "bin": {
-    "dolcegusto-cli": "cli.js"
+    "dolcegusto-cli": "lib-es5/cli.js"
   },
   "author": "Revok",
   "license": "ISC",

@@ -122,7 +122,7 @@ temp/
 # End of https://www.gitignore.io/api/node,visualstudiocode
 
 # babel output folder
-lib/
+lib-es5/
 
 # pkg output folder
 bin/
