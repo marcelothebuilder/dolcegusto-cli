@@ -4,7 +4,7 @@
   "description": "",
   "main": "lib-es5/index.js",
   "scripts": {
-    "start": "node src/index.js",
+    "start": "node src/cli.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "babel src -d lib-es5",
     "build:bin": "babel src -d lib-es5 && pkg package.json --out-path bin && node upx.js",

@@ -1,4 +1,3 @@
-const { Run } = require('./App')
+const { DolceGustoApi, DolceGustoApiError } = require('./DolceGustoApi')
 
-Run()
-  .then(() => null)
+module.exports = { DolceGustoApi, DolceGustoApiError }
