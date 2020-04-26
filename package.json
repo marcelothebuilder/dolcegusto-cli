@@ -10,7 +10,9 @@
     "lint": "eslint src",
     "lint:fix": "eslint src --fix"
   },
-  "bin": "lib/index.js",
+  "bin": {
+    "dolcegusto-cli": "cli.js"
+  },
   "author": "Revok",
   "license": "ISC",
   "dependencies": {
