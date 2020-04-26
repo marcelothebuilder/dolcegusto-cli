@@ -13,9 +13,13 @@ const styles = {
 module.exports = {
   styles,
   success: (msg) => log(styles.success(msg)),
-  error: (msg) => log(styles.error(msg)),
+  error: (msg, source) => {
+    if (source) log(styles.error(msg + "\n"), source);
+
+    log(styles.error(msg));
+  },
   errorTitle: (msg) => log(styles.errorTitle(msg)),
-  logBanner: () => {
+  logBanner: async () => {
     log(
       styles.bannerArt(
         figlet.textSync("DolceGusto Cli", {
