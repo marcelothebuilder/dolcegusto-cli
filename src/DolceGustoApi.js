@@ -94,14 +94,17 @@ class DolceGustoApi {
 
     loginSpinner.start();
 
-    try {
-      const index = (await this.axios.get("/")).data;
-
-      const $index = cheerio.load(index);
+    return this.axios.get("/").then(({ status, data }) => {
+      const $index = cheerio.load(data);
       const formKey = $index('input[name="form_key"]')[0].attribs.value;
       const formReferer = $index('input[name="referer"]')[0].attribs.value;
 
-      const r = await this.axios.post(
+      return this._executeLoginPost({formKey, formReferer, email, password});
+    }).finally(() => loginSpinner.stop());
+  }
+
+  async _executeLoginPost({formKey, formReferer, email, password}) {
+    return this.axios.post(
         "customer/account/loginPost/",
         qs.encode({
           form_key: formKey,
@@ -125,29 +128,24 @@ class DolceGustoApi {
             mode: "cors",
           },
         }
-      );
+      ).then(({ data, status }) => {
+        if (status < 200 || status >= 400) {
+          throw new DolceGustoApiError({
+            message: `Login failed with status ${status}`,
+            step: DolceGustoApiError.Step.LOGIN,
+          });
+        }
 
-      const { data, status } = r;
+        const errors = this._parseErrors(data);
 
-      if (status < 200 || status >= 400) {
+        if (!errors.length) return data;
+
         throw new DolceGustoApiError({
-          message: `Login failed with status ${status}`,
+          message: `Login failed`,
+          messages: [...new Set(errors)],
           step: DolceGustoApiError.Step.LOGIN,
         });
-      }
-
-      const errors = this._parseErrors(data);
-
-      if (!errors.length) return data;
-
-      throw new DolceGustoApiError({
-        message: `Login failed`,
-        messages: [...new Set(errors)],
-        step: DolceGustoApiError.Step.LOGIN,
       });
-    } finally {
-      loginSpinner.stop();
-    }
   }
 
   _parseErrors(responseData) {
