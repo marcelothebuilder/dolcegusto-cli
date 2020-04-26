@@ -61,7 +61,14 @@ class DolceGustoApi {
           mode: "cors",
         }
       )
-      .then(({ data }) => {
+      .then(({ data, status }) => {
+        if (status < 200 || status >= 400) {
+          throw new DolceGustoApiError({
+            message: `Coupon submission failed with status ${status}`,
+            step: DolceGustoApiError.Step.SUBMIT_COUPON,
+          });
+        }
+
         const errors = this._parseErrors(data);
 
         if (!errors.length) return data;
