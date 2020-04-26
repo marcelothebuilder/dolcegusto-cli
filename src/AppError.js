@@ -1,7 +1,3 @@
-class AppError extends Error {
-  constructor (msg) {
-    super(msg)
-  }
-}
+class AppError extends Error {}
 
 module.exports = { AppError }
