@@ -1,10 +1,5 @@
 const inquirer = require("inquirer");
-
-const CouponSize = 12;
-const ValidCouponRegex = new RegExp(`^[A-Za-z1-9]{${CouponSize}}$`);
-const InvalidCouponError = `Coupon must be a ${CouponSize} alphanumeric string.`;
-
-const isCouponInvalid = c => !ValidCouponRegex.test(c);
+const { isCouponInvalid, InvalidCouponError } = require("./model/Coupon");
 
 const validateNonEmpty = (nullMessage) => (value) => {
   if (value && value.trim().length) {

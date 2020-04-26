@@ -1,13 +1,15 @@
 const { DolceGustoApi } = require("./DolceGustoApi");
-const { askCoupon, askContinue } = require("./Prompts");
+const { getCouponSource } = require("./CouponSource");
 const { getCredentials } = require("./Credentials");
 
 const runCouponRegisterLoop = async () => {
-  do {
+  const couponSource = getCouponSource();
+  
+  for await (const coupon of couponSource) {
     await new DolceGustoApi(getCredentials()).postCoupon({
-      coupon: await askCoupon(),
+      coupon: coupon,
     });
-  } while (await askContinue());
+  }
 };
 
 module.exports = { runCouponRegisterLoop };
