@@ -1,1 +1,1 @@
-module.exports.Argv = require("minimist")(process.argv.slice(2));
+module.exports.Argv = require('minimist')(process.argv.slice(2))
