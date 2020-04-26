@@ -22,7 +22,7 @@ module.exports = {
       {
         name: 'continue',
         type: 'confirm',
-        message: 'Continue entering coupons?'
+        message: 'Enter another coupon?'
       }
     ]
     return (await inquirer.prompt(questions)).continue
