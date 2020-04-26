@@ -1,10 +1,4 @@
-const { ErrorHandler } = require('./ErrorHandler')
-const { logBanner } = require('./Logger')
-const { runUserSetup } = require('./Setup')
-const { runCouponRegisterLoop } = require('./CouponRegister');
+const { Run } = require('./App')
 
-(async () => {
-  await logBanner()
-  await runUserSetup()
-  await runCouponRegisterLoop()
-})().catch(ErrorHandler)
+Run()
+  .then(() => null)
