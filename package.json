@@ -1,6 +1,6 @@
 {
   "name": "dolcegusto-cli",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Automates promo code submission",
   "main": "lib-es5/index.js",
   "scripts": {
