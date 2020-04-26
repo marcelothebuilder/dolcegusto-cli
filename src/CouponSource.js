@@ -1,14 +1,15 @@
 const { Argv } = require('./Argv')
+const { AppError } = require('./AppError')
 const { askCoupon, askContinue } = require('./Prompts')
 const { isCouponInvalid, InvalidCouponError } = require('./model/Coupon')
 
 const getCouponSource = async function * () {
   if (Argv.coupon) {
-    const coupons = Argv.coupon.split(/\s*,\s*/)
+    const coupons = String(Argv.coupon).split(/\s*,\s*/);
 
     coupons.forEach((c) => {
       if (isCouponInvalid(c)) {
-        throw Error(`${InvalidCouponError} (${c})`)
+        throw new AppError(`${InvalidCouponError} (${c})`)
       }
     })
 
