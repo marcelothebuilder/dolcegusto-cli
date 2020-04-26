@@ -1,11 +1,24 @@
 const inquirer = require("inquirer");
 
+const CouponSize = 12;
+const ValidCouponRegex = new RegExp(`^[A-Za-z1-9]{${CouponSize}}$`);
+const InvalidCouponError = `Coupon must be a ${CouponSize} alphanumeric string.`;
+
+const isCouponInvalid = c => !ValidCouponRegex.test(c);
+
 const validateNonEmpty = (nullMessage) => (value) => {
   if (value && value.trim().length) {
     return true;
   } else {
     return nullMessage;
   }
+};
+
+const validateCoupon = (coupon) => {
+  if (isCouponInvalid(coupon)) {
+    return InvalidCouponError;
+  }
+  return true;
 };
 
 module.exports = {
@@ -25,7 +38,7 @@ module.exports = {
         name: "coupon",
         type: "input",
         message: "Enter the coupon to register",
-        validate: validateNonEmpty("Please enter a valid coupon."),
+        validate: validateCoupon,
       },
     ];
     return (await inquirer.prompt(questions)).coupon;
