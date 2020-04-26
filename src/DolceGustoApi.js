@@ -1,7 +1,10 @@
-const cheerio = require('cheerio')
 const qs = require('querystring')
 const { CookieJar } = require('tough-cookie')
 const { Spinner } = require('clui')
+const chalk = require('chalk')
+const cheerio = require('cheerio')
+const { styles, log } = require('./Logger')
+
 const axios = require('axios').default
 const axiosCookieJarSupport = require('axios-cookiejar-support').default
 
@@ -71,7 +74,9 @@ class DolceGustoApi {
 
         const errors = this._parseErrors(data)
 
-        if (!errors.length) return data
+        if (!errors.length) {
+          return data
+        }
 
         throw new DolceGustoApiError({
           message: 'Error while submitting coupon',
@@ -79,7 +84,12 @@ class DolceGustoApi {
           step: DolceGustoApiError.Step.SUBMIT_COUPON
         })
       })
-      .finally(() => couponSpinner.stop())
+      .finally(() => {
+        couponSpinner.stop()
+      })
+      .then(() => {
+        log(`Coupon ${styles.highlight(coupon)} submitted!`)
+      })
   }
 
   async _loginOnce () {
@@ -93,13 +103,24 @@ class DolceGustoApi {
 
     loginSpinner.start()
 
-    return this.axios.get('/').then(({ status, data }) => {
-      const $index = cheerio.load(data)
-      const formKey = $index('input[name="form_key"]')[0].attribs.value
-      const formReferer = $index('input[name="referer"]')[0].attribs.value
+    return this.axios
+      .get('/')
+      .then(({ status, data }) => {
+        const $index = cheerio.load(data)
+        const formKey = $index('input[name="form_key"]')[0].attribs.value
+        const formReferer = $index('input[name="referer"]')[0].attribs.value
 
-      return this._executeLoginPost({ formKey, formReferer, email, password })
-    }).finally(() => loginSpinner.stop())
+        return this._executeLoginPost({
+          formKey,
+          formReferer,
+          email,
+          password
+        })
+      })
+      .finally(() => {
+        loginSpinner.stop()
+      })
+      .then(() => log(`Logged in as ${styles.highlight(email)}`))
   }
 
   async _executeLoginPost ({ formKey, formReferer, email, password }) {
@@ -137,7 +158,9 @@ class DolceGustoApi {
 
       const errors = this._parseErrors(data)
 
-      if (!errors.length) return data
+      if (!errors.length) {
+        return data
+      }
 
       throw new DolceGustoApiError({
         message: 'Login failed',
