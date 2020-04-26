@@ -43,7 +43,7 @@ class DolceGustoApi {
 
     return this.axios
       .post(
-        "https://www.nescafe-dolcegusto.com.br/pcm/customer_account_bonus/couponPost/",
+        "pcm/customer_account_bonus/couponPost/",
         qs.encode({ "coupon_code[]": coupon }),
         {
           withCredentials: true,
@@ -95,16 +95,14 @@ class DolceGustoApi {
     loginSpinner.start();
 
     try {
-      const index = (
-        await this.axios.get("https://www.nescafe-dolcegusto.com.br/")
-      ).data;
+      const index = (await this.axios.get("/")).data;
 
       const $index = cheerio.load(index);
       const formKey = $index('input[name="form_key"]')[0].attribs.value;
       const formReferer = $index('input[name="referer"]')[0].attribs.value;
 
       const r = await this.axios.post(
-        "https://www.nescafe-dolcegusto.com.br/customer/account/loginPost/",
+        "customer/account/loginPost/",
         qs.encode({
           form_key: formKey,
           referer: formReferer,
