@@ -1,32 +1,36 @@
 <!--
---- Readme.md Snippet without images Start ---
+&lt;--- Readme.md Snippet without images Start ---&gt;
 ## Tech Stack
 marcelothebuilder/dolcegusto-cli is built on the following main stack:
+
 - [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) – Languages
 - [Babel](http://babeljs.io/) – JavaScript Compilers
 - [ESLint](http://eslint.org/) – Code Review
 - [axios](https://github.com/mzabriskie/axios) – Javascript Utilities & Libraries
 
 Full tech stack [here](/techstack.md)
---- Readme.md Snippet without images End ---
 
---- Readme.md Snippet with images Start ---
+&lt;--- Readme.md Snippet without images End ---&gt;
+
+&lt;--- Readme.md Snippet with images Start ---&gt;
 ## Tech Stack
 marcelothebuilder/dolcegusto-cli is built on the following main stack:
+
 - <img width='25' height='25' src='https://img.stackshare.io/service/1209/javascript.jpeg' alt='JavaScript'/> [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) – Languages
 - <img width='25' height='25' src='https://img.stackshare.io/service/2739/-1wfGjNw.png' alt='Babel'/> [Babel](http://babeljs.io/) – JavaScript Compilers
 - <img width='25' height='25' src='https://img.stackshare.io/service/3337/Q4L7Jncy.jpg' alt='ESLint'/> [ESLint](http://eslint.org/) – Code Review
 - <img width='25' height='25' src='https://img.stackshare.io/no-img-open-source.png' alt='axios'/> [axios](https://github.com/mzabriskie/axios) – Javascript Utilities & Libraries
 
 Full tech stack [here](/techstack.md)
---- Readme.md Snippet with images End ---
+
+&lt;--- Readme.md Snippet with images End ---&gt;
 -->
 <div align="center">
 
 # Tech Stack File
 ![](https://img.stackshare.io/repo.svg "repo") [marcelothebuilder/dolcegusto-cli](https://github.com/marcelothebuilder/dolcegusto-cli)![](https://img.stackshare.io/public_badge.svg "public")
 <br/><br/>
-|24<br/>Tools used|11/10/23 <br/>Report generated|
+|25<br/>Tools used|01/05/24 <br/>Report generated|
 |------|------|
 </div>
 
@@ -102,9 +106,9 @@ Full tech stack [here](/techstack.md)
 </table>
 
 
-## <img src='https://img.stackshare.io/group.svg' /> Open source packages (17)</h2>
+## <img src='https://img.stackshare.io/group.svg' /> Open source packages (18)</h2>
 
-## <img width='24' height='24' src='https://img.stackshare.io/service/1120/lejvzrnlpb308aftn31u.png'/> npm (17)
+## <img width='24' height='24' src='https://img.stackshare.io/service/1120/lejvzrnlpb308aftn31u.png'/> npm (18)
 
 |NAME|VERSION|LAST UPDATED|LAST UPDATED BY|LICENSE|VULNERABILITIES|
 |:------|:------|:------|:------|:------|:------|
@@ -112,6 +116,7 @@ Full tech stack [here](/techstack.md)
 |[@babel/core](https://www.npmjs.com/@babel/core)|v7.9.0|04/26/20|Marcelo Paixão Resende |MIT|N/A|
 |[@babel/plugin-proposal-class-properties](https://www.npmjs.com/@babel/plugin-proposal-class-properties)|v7.8.3|04/26/20|Marcelo Paixão Resende |MIT|N/A|
 |[babel-eslint](https://www.npmjs.com/babel-eslint)|v10.1.0|04/26/20|Marcelo Paixão Resende |MIT|N/A|
+|[chalk](https://www.npmjs.com/chalk)|v2.4.2|04/26/20|Marcelo Paixão Resende |MIT|N/A|
 |[cheerio](https://www.npmjs.com/cheerio)|v1.0.0|04/26/20|Marcelo Paixão Resende |MIT|N/A|
 |[clui](https://www.npmjs.com/clui)|v0.3.6|04/26/20|Marcelo Paixão Resende |MIT|N/A|
 |[configstore](https://www.npmjs.com/configstore)|v5.0.1|04/26/20|Marcelo Paixão Resende |BSD-2-Clause|N/A|
@@ -129,4 +134,4 @@ Full tech stack [here](/techstack.md)
 <br/>
 <div align='center'>
 
-Generated via [Stack File](https://github.com/apps/stack-file)
+Generated via [Stack File](https://github.com/marketplace/stack-file)
