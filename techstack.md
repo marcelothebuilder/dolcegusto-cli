@@ -30,7 +30,7 @@ Full tech stack [here](/techstack.md)
 # Tech Stack File
 ![](https://img.stackshare.io/repo.svg "repo") [marcelothebuilder/dolcegusto-cli](https://github.com/marcelothebuilder/dolcegusto-cli)![](https://img.stackshare.io/public_badge.svg "public")
 <br/><br/>
-|25<br/>Tools used|01/05/24 <br/>Report generated|
+|25<br/>Tools used|02/29/24 <br/>Report generated|
 |------|------|
 </div>
 
@@ -128,7 +128,7 @@ Full tech stack [here](/techstack.md)
 |[figlet](https://www.npmjs.com/figlet)|v1.3.0|04/26/20|Marcelo Paixão Resende |MIT|N/A|
 |[inquirer](https://www.npmjs.com/inquirer)|v7.1.0|04/26/20|Marcelo Paixão Resende |MIT|N/A|
 |[minimist](https://www.npmjs.com/minimist)|v1.2.5|04/26/20|Marcelo Paixão Resende |MIT|[CVE-2021-44906](https://github.com/advisories/GHSA-xvch-5gv4-984h) (Critical)|
-|[pkg](https://www.npmjs.com/pkg)|v4.4.7|04/26/20|Marcelo Paixão Resende |MIT|N/A|
+|[pkg](https://www.npmjs.com/pkg)|v4.4.7|04/26/20|Marcelo Paixão Resende |MIT|[CVE-2024-24828](https://github.com/advisories/GHSA-22r3-9w55-cj54) (Moderate)|
 |[tough-cookie](https://www.npmjs.com/tough-cookie)|v2.5.0|04/26/20|Marcelo Paixão Resende |BSD-3-Clause|[CVE-2023-26136](https://github.com/advisories/GHSA-72xf-g2v4-qvf3) (Moderate)|
 
 <br/>
